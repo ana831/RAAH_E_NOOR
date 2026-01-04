@@ -3,379 +3,277 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Raah e Noor Academy | Premium Online Islamic Education</title>
+    <title>Raah e Noor Academy | Fun Islamic Learning</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
     <style>
         :root {
+            --primary: #064e3b;
             --gold: #d4af37;
-            --deep-green: #064e3b;
-            --emerald: #065f46;
-            --soft-white: #fdfdfd;
-            --glass: rgba(255, 255, 255, 0.9);
-            --shadow: 0 20px 40px rgba(0,0,0,0.1);
-            --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            --text: #1e293b;
+            --white: #ffffff;
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
         html { 
-            scroll-behavior: smooth;
-            border: 15px solid var(--deep-green); 
+            scroll-behavior: smooth; 
+            border: 10px solid var(--primary); 
             min-height: 100vh;
         }
 
         body {
             font-family: 'Montserrat', sans-serif;
-            background: var(--soft-white);
-            color: #2d3436;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* --- Sophisticated Geometric Overlay --- */
-        body::after {
-            content: "";
-            position: fixed;
-            inset: 0;
-            background-image: url('https://www.transparenttextures.com/patterns/islamic-art.png');
-            opacity: 0.03;
-            pointer-events: none;
-            z-index: 1;
+            background-color: var(--white);
+            background-image: linear-gradient(rgba(255,255,255,0.94), rgba(255,255,255,0.94)), 
+                              url('https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?q=80&w=2070');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
         }
 
         /* --- Navigation --- */
-        nav {
-            position: sticky;
-            top: 0;
-            background: var(--glass);
-            backdrop-filter: blur(15px);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.5rem 8%;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        header {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 15px 5%;
+            display: flex; justify-content: space-between; align-items: center;
+            position: sticky; top: 0; z-index: 1000;
+            border-bottom: 1px solid #eee;
         }
 
-        .logo-box { display: flex; align-items: center; gap: 15px; text-decoration: none; }
-        .logo-box img { height: 55px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)); }
-        .logo-text { font-family: 'Cinzel'; color: var(--deep-green); font-weight: 700; font-size: 1.4rem; }
+        .logo-container img { height: 50px; width: auto; }
 
-        .nav-links a {
-            text-decoration: none;
-            color: var(--deep-green);
-            font-weight: 600;
-            margin-left: 30px;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            transition: var(--transition-smooth);
-            position: relative;
+        .nav-menu { display: flex; gap: 20px; }
+        .nav-menu a { text-decoration: none; color: var(--primary); font-weight: 700; font-size: 0.8rem; text-transform: uppercase; }
+
+        .menu-toggle { display: none; font-size: 1.5rem; color: var(--primary); cursor: pointer; }
+
+        @media (max-width: 768px) {
+            .menu-toggle { display: block; }
+            .nav-menu {
+                display: none; position: absolute; top: 80px; left: 0; width: 100%;
+                background: white; flex-direction: column; padding: 20px; text-align: center;
+                border-bottom: 3px solid var(--gold); box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            }
+            .nav-menu.active { display: flex; }
         }
 
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px; left: 0;
-            width: 0%; height: 2px;
-            background: var(--gold);
-            transition: var(--transition-smooth);
-        }
-
-        .nav-links a:hover::after { width: 100%; }
-
-        /* --- Hero Section --- */
+        /* --- Hero --- */
         .hero {
-            height: 75vh;
-            margin: 20px;
-            border-radius: 40px;
-            background: linear-gradient(rgba(6, 78, 59, 0.85), rgba(6, 78, 59, 0.85)), 
-                        url('https://images.unsplash.com/photo-1590076215667-873d39644026?auto=format&fit=crop&w=1920');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: white;
-            position: relative;
-            box-shadow: var(--shadow);
-            border: 2px solid var(--gold);
-            z-index: 2;
+            background: linear-gradient(135deg, rgba(6, 78, 59, 0.9), rgba(6, 78, 59, 0.85)), 
+                        url('https://images.unsplash.com/photo-1584551270911-6556119910f1?auto=format&fit=crop&w=1920');
+            background-size: cover; margin: 15px; border-radius: 25px; padding: 60px 20px;
+            text-align: center; color: white; border: 1px solid var(--gold);
+        }
+        .hero h1 { font-family: 'Cinzel'; font-size: 2rem; margin-bottom: 15px; }
+
+        /* --- Courses --- */
+        .section-padding { padding: 40px 15px; }
+        .grid-courses { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+
+        .course-card {
+            background: white; border-radius: 20px; padding: 30px 20px;
+            border: 1.5px solid #f0f0f0; transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            display: flex; flex-direction: column; align-items: center; text-align: center;
         }
 
-        .hero h1 { 
-            font-family: 'Cinzel'; 
-            font-size: clamp(2rem, 5vw, 4rem); 
-            margin-bottom: 20px;
-            letter-spacing: 4px;
-        }
+        .course-card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 15px; transition: var(--transition); }
 
-        .hero p { font-size: 1.2rem; font-weight: 300; max-width: 600px; margin-bottom: 40px; }
+        .course-card h3 { font-family: 'Cinzel'; color: var(--primary); margin-bottom: 12px; font-size: 1.1rem; }
 
-        .btn-premium {
-            background: var(--gold);
-            color: var(--deep-green);
-            padding: 18px 45px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-            transition: var(--transition-smooth);
-        }
+        .course-points { list-style: none; padding: 0; text-align: left; width: 100%; }
+        .course-points li { font-size: 0.85rem; color: #555; margin-bottom: 8px; display: flex; align-items: start; gap: 8px; }
+        .course-points li::before { content: "•"; color: var(--gold); font-weight: bold; }
 
-        .btn-premium:hover {
-            transform: translateY(-5px);
-            background: var(--soft-white);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
-        }
-
-        /* --- Courses Grid --- */
-        .section-container { padding: 100px 10%; z-index: 2; position: relative; }
-        
-        .grid-layout {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
-            margin-top: 60px;
-        }
-
-        .pro-card {
-            background: white;
-            padding: 50px 40px;
-            border-radius: 30px;
-            text-align: center;
-            border: 1px solid #f0f0f0;
-            transition: var(--transition-smooth);
-            position: relative;
-        }
-
-        .pro-card:hover {
-            transform: translateY(-15px);
+        /* Scroll Glow Effect */
+        .course-card.active-glow {
+            background: var(--primary) !important;
+            transform: translateY(-8px);
             border-color: var(--gold);
-            box-shadow: var(--shadow);
         }
+        .course-card.active-glow h3, .course-card.active-glow i { color: var(--gold) !important; }
+        .course-card.active-glow .course-points li { color: rgba(255,255,255,0.9) !important; }
 
-        .icon-wrapper {
-            width: 90px; height: 90px;
-            background: #f8fbf9;
-            border-radius: 50%;
-            display: flex;
-            align-items: center; justify-content: center;
-            margin: 0 auto 30px;
-            font-size: 2.5rem;
-            color: var(--deep-green);
-            transition: var(--transition-smooth);
+        /* --- Form --- */
+        .form-container {
+            background: white; border-radius: 25px; padding: 35px 20px;
+            margin: 15px; border: 2px solid var(--gold);
         }
+        input, select, textarea { width: 100%; padding: 12px; margin-bottom: 12px; border: 1px solid #ddd; border-radius: 10px; }
+        .btn-submit { width: 100%; background: var(--primary); color: var(--gold); padding: 15px; border: none; border-radius: 10px; font-weight: 700; cursor: pointer; }
 
-        .pro-card:hover .icon-wrapper {
-            background: var(--deep-green);
-            color: var(--gold);
-        }
-
-        /* --- Advanced Registration Form --- */
-        .glass-form-container {
-            max-width: 1100px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 40px;
-            display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-        }
-
-        .form-sidebar {
-            background: var(--deep-green);
-            padding: 60px;
-            color: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .form-content { padding: 60px; background: #fff; }
-
-        .input-group { position: relative; margin-bottom: 25px; }
-
-        input, select, textarea {
-            width: 100%;
-            padding: 15px;
-            border: 1.5px solid #eee;
-            border-radius: 12px;
-            outline: none;
-            font-family: inherit;
-            transition: var(--transition-smooth);
-        }
-
-        input:focus { border-color: var(--gold); background: #fffcf5; }
-
-        .submit-pro {
-            width: 100%;
-            background: var(--deep-green);
-            color: var(--gold);
-            padding: 18px;
-            border: none;
-            border-radius: 12px;
-            font-weight: 700;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: var(--transition-smooth);
-        }
-
-        .submit-pro:hover { letter-spacing: 2px; opacity: 0.9; }
-
-        /* --- Floating WhatsApp --- */
-        .wa-float {
-            position: fixed;
-            bottom: 40px;
-            right: 40px;
-            background: #25d366;
-            color: white;
-            width: 65px; height: 65px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center; justify-content: center;
-            font-size: 32px;
-            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
-            z-index: 10000;
-            transition: var(--transition-smooth);
-        }
-
-        .wa-float:hover { transform: scale(1.1) rotate(15deg); }
-
-        @media (max-width: 900px) {
-            .glass-form-container { grid-template-columns: 1fr; }
-            nav { padding: 1rem 5%; }
-            .nav-links { display: none; }
-        }
+        footer { background: #022c22; color: var(--gold); padding: 25px; text-align: center; font-size: 0.75rem; }
     </style>
 </head>
 <body>
 
-    <nav>
-        <a href="#" class="logo-box">
-            <img src="LOGO.png" alt="Logo">
-            <span class="logo-text">Raah e Noor</span>
-        </a>
-        <div class="nav-links">
+    <header>
+        <a href="#" class="logo-container"><img src="LOGO.png" alt="Logo"></a>
+        <div class="menu-toggle" id="mobile-btn"><i class="fas fa-bars"></i></div>
+        <nav class="nav-menu" id="nav-list">
             <a href="#">Home</a>
-            <a href="#courses">Curriculum</a>
-            <a href="#enroll">Admissions</a>
-        </div>
-    </nav>
+            <a href="#courses">Courses</a>
+            <a href="#enroll">Enroll</a>
+        </nav>
+    </header>
 
-    <section class="hero animate__animated animate__fadeIn">
-        <h1 class="animate__animated animate__slideInDown">Divine Knowledge, <br> Modern Access.</h1>
-        <p>Premium 1-on-1 Online Islamic education tailored specifically for Kids and Women by expert female scholars.</p>
-        <a href="#enroll" class="btn-premium">Begin Your Journey</a>
+    <section class="hero">
+        <h1>Islamic Learning Made Fun!</h1>
+        <p>Premium 1-on-1 Online classes for Kids & Women.</p>
+        <a href="#enroll" style="background:var(--gold); color:var(--primary); padding:12px 25px; border-radius:50px; text-decoration:none; font-weight:800; font-size:0.8rem;">START NOW</a>
     </section>
 
-    <section class="section-container" id="courses">
-        <div style="text-align: center;">
-            <h2 style="font-family: 'Cinzel'; font-size: 2.5rem; color: var(--deep-green);">Our Curriculum</h2>
-            <div style="width: 80px; height: 3px; background: var(--gold); margin: 20px auto;"></div>
-        </div>
-
-        <div class="grid-layout">
-            <div class="pro-card">
-                <div class="icon-wrapper"><i class="fas fa-book-quran"></i></div>
-                <h3>Noorani Qaida</h3>
-                <p style="color: #666; margin-top: 15px;">A solid foundation for beginners to master Arabic phonetics and Tajweed rules from scratch.</p>
-            </div>
-
-            <div class="pro-card">
-                <div class="icon-wrapper"><i class="fas fa-mosque"></i></div>
-                <h3>Hifz-e-Quran</h3>
-                <p style="color: #666; margin-top: 15px;">Personalized memorization plans with modern techniques to help you preserve the Word of Allah.</p>
-            </div>
-
-            <div class="pro-card">
-                <div class="icon-wrapper"><i class="fas fa-star-and-crescent"></i></div>
-                <h3>Islamic Studies</h3>
-                <p style="color: #666; margin-top: 15px;">Comprehensive learning of Fiqh, Seerah, and Akhlaq for a complete spiritual upbringing.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="section-container" id="enroll">
-        <div class="glass-form-container">
-            <div class="form-sidebar">
-                <h2 style="font-family: 'Cinzel'; font-size: 2rem; margin-bottom: 20px;">Reserve Your Spot</h2>
-                <p style="opacity: 0.8; font-weight: 300; margin-bottom: 30px;">Complete the form and our admissions team will contact you within 24 hours to schedule your free trial.</p>
-                <div style="font-size: 0.9rem;">
-                    <p style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: var(--gold);"></i> Certified Female Tutors</p>
-                    <p style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: var(--gold);"></i> 24/7 Flexible Scheduling</p>
-                    <p><i class="fas fa-check-circle" style="color: var(--gold);"></i> Weekly Progress Reports</p>
-                </div>
-            </div>
+    <section class="section-padding" id="courses">
+        <h2 style="text-align:center; font-family:'Cinzel'; color:var(--primary); margin-bottom:30px;">Choose Your Course</h2>
+        <div class="grid-courses">
             
-            <div class="form-content">
-                <form id="proRegistrationForm">
-                    <div class="input-group">
-                        <input type="text" name="name" placeholder="Full Name" required>
-                    </div>
-                    <div class="input-group">
-                        <input type="tel" name="phone" placeholder="WhatsApp Number (With Country Code)" required>
-                    </div>
-                    <div class="input-group">
-                        <select name="course" required>
-                            <option value="">Select Your Interest</option>
-                            <option>Noorani Qaida</option>
-                            <option>Hifz-e-Quran</option>
-                            <option>Islamic Studies</option>
-                        </select>
-                    </div>
-                    <div class="input-group">
-                        <textarea name="note" rows="4" placeholder="Specific requirements or questions?"></textarea>
-                    </div>
-                    <button type="submit" class="submit-pro">CONFIRM REGISTRATION</button>
-                </form>
-                <div id="thankYou" style="display:none; text-align:center; padding: 20px;">
-                    <i class="fas fa-check-circle" style="font-size: 3rem; color: var(--deep-green); margin-bottom: 15px;"></i>
-                    <h3>JazakAllah Khairan!</h3>
-                    <p>Redirecting to WhatsApp for confirmation...</p>
-                </div>
+            <div class="course-card">
+                <i class="fas fa-book-open"></i>
+                <h3>Noorani Qaida</h3>
+                <ul class="course-points">
+                    <li>Arabic Alphabet recognition for kids</li>
+                    <li>Basic rules of pronunciation (Makharij)</li>
+                    <li>Connecting letters and forming words</li>
+                </ul>
             </div>
+
+            <div class="course-card">
+                <i class="fas fa-book-quran"></i>
+                <h3>Nazra Quran</h3>
+                <ul class="course-points">
+                    <li>Fluent reading of the Holy Quran</li>
+                    <li>Regular practice for speed & accuracy</li>
+                    <li>Building a lifelong connection with Quran</li>
+                </ul>
+            </div>
+
+            <div class="course-card">
+                <i class="fas fa-microphone-alt"></i>
+                <h3>Quran with Tajweed</h3>
+                <ul class="course-points">
+                    <li>Mastering Noon & Meem Sakin rules</li>
+                    <li>Learning Advanced Madd & Gunna</li>
+                    <li>Reciting in the beautiful Prophetic way</li>
+                </ul>
+            </div>
+
+            <div class="course-card">
+                <i class="fas fa-hands-praying"></i>
+                <h3>Duas & Short Surahs</h3>
+                <ul class="course-points">
+                    <li>Memorizing daily Sunnah supplications</li>
+                    <li>Learning the 10 last Surahs of Quran</li>
+                    <li>Simple meanings for better understanding</li>
+                </ul>
+            </div>
+
+            <div class="course-card">
+                <i class="fas fa-kaaba"></i>
+                <h3>Islamic Practices</h3>
+                <ul class="course-points">
+                    <li>Step-by-step Wudu & Salah training</li>
+                    <li>Learning the 5 Pillars of Islam</li>
+                    <li>Basics of Halal & Haram in daily life</li>
+                </ul>
+            </div>
+
+            <div class="course-card">
+                <i class="fas fa-heart"></i>
+                <h3>Basic Beliefs (Aqeedah)</h3>
+                <ul class="course-points">
+                    <li>Understanding the Oneness of Allah</li>
+                    <li>Learning about Prophets & Angels</li>
+                    <li>Purpose of life according to Islam</li>
+                </ul>
+            </div>
+
+            <div class="course-card">
+                <i class="fas fa-user-shield"></i>
+                <h3>Islamic Manners (Akhlaq)</h3>
+                <ul class="course-points">
+                    <li>Respect for parents and elders</li>
+                    <li>Truthfulness and kindness in speech</li>
+                    <li>Sunnah of eating, sleeping & greeting</li>
+                </ul>
+            </div>
+
+            <div class="course-card">
+                <i class="fas fa-brain"></i>
+                <h3>Surah Memorization</h3>
+                <ul class="course-points">
+                    <li>Hifz of Juz Amma (selected parts)</li>
+                    <li>Revision techniques for long-term memory</li>
+                    <li>Focus on beautiful voice quality</li>
+                </ul>
+            </div>
+
+            <div class="course-card">
+                <i class="fas fa-lightbulb"></i>
+                <h3>Intro to Tafseer</h3>
+                <ul class="course-points">
+                    <li>Easy explanation of Quranic stories</li>
+                    <li>Lessons for daily life from verses</li>
+                    <li>Why the Quran was revealed?</li>
+                </ul>
+            </div>
+
+            <div class="course-card">
+                <i class="fas fa-gavel"></i>
+                <h3>Basic Fiqh</h3>
+                <ul class="course-points">
+                    <li>Rulings of Taharah (Purification)</li>
+                    <li>Common Masail for Women & Kids</li>
+                    <li>How to perform Fasting & Zakat</li>
+                </ul>
+            </div>
+
         </div>
     </section>
 
-    <a href="https://wa.me/923282248831" class="wa-float" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+    <section class="section-padding" id="enroll">
+        <div class="form-container">
+            <h2 style="text-align:center; font-family:'Cinzel'; color:var(--primary); margin-bottom:20px;">Join Us Today</h2>
+            <form id="enrollForm">
+                <input type="text" name="name" placeholder="Student Name" required>
+                <input type="tel" name="phone" placeholder="WhatsApp Number" required>
+                <select name="course" required>
+                    <option value="">Choose Course</option>
+                    <option>Noorani Qaida</option>
+                    <option>Nazra/Tajweed</option>
+                    <option>Islamic Studies</option>
+                </select>
+                <textarea name="message" rows="3" placeholder="Any message?"></textarea>
+                <button type="submit" class="btn-submit">CONFIRM ON WHATSAPP</button>
+            </form>
+        </div>
+    </section>
 
-    <footer style="background: var(--deep-green); color: white; padding: 50px 10%; text-align: center;">
-        <p style="font-family: 'Cinzel'; letter-spacing: 2px;">Raah e Noor Academy</p>
-        <p style="font-size: 0.8rem; opacity: 0.6; margin-top: 10px;">&copy; 2026 Excellence in Digital Islamic Education</p>
-    </footer>
+    <footer><p>&copy; 2026 Raah e Noor Academy. Excellence in Islamic Learning.</p></footer>
 
     <script>
-        // Professional WhatsApp Submission
-        document.getElementById('proRegistrationForm').addEventListener('submit', function(e) {
+        // Menu Toggle
+        document.getElementById('mobile-btn').addEventListener('click', () => {
+            document.getElementById('nav-list').classList.toggle('active');
+        });
+
+        // Scroll Effect
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active-glow');
+                else entry.target.classList.remove('active-glow');
+            });
+        }, { threshold: 0.7 });
+        document.querySelectorAll('.course-card').forEach(card => observer.observe(card));
+
+        // WhatsApp Logic
+        document.getElementById('enrollForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            
-            const name = this.name.value;
-            const phone = this.phone.value;
-            const course = this.course.value;
-            const note = this.note.value;
-
-            const message = `*✨ NEW ADMISSION REQUEST ✨*%0A%0A*Name:* ${name}%0A*WhatsApp:* ${phone}%0A*Course:* ${course}%0A*Message:* ${note}`;
-            const waUrl = `https://wa.me/923282248831?text=${message}`;
-
-            this.style.display = 'none';
-            document.getElementById('thankYou').style.display = 'block';
-
-            setTimeout(() => {
-                window.open(waUrl, '_blank');
-            }, 2000);
+            const waText = `*New Admission*%0A*Name:* ${this.name.value}%0A*Course:* ${this.course.value}`;
+            window.open(`https://wa.me/923282248831?text=${waText}`, '_blank');
         });
     </script>
 </body>
