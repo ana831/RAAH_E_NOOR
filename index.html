@@ -47,6 +47,36 @@
             font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-left: 20px;
         }
 
+        /* --- MOBILE NAVIGATOR FIX --- */
+        .menu-toggle { display: none; font-size: 1.5rem; color: #111; cursor: pointer; border: 1px solid var(--gold); padding: 5px 10px; border-radius: 5px; }
+
+        @media (max-width: 768px) {
+            .menu-toggle { display: block; }
+            .nav-links {
+                display: none; position: absolute; top: 87px; left: 0; width: 100%;
+                background: var(--white); flex-direction: column; padding: 20px; text-align: center;
+                border-bottom: 3px solid var(--gold);
+            }
+            .nav-links.mobile-active { display: flex; }
+            .nav-links a { margin: 15px 0; font-size: 1rem; }
+            header { padding: 10px 5%; }
+            .hero { margin: 10px; border-radius: 20px; padding: 60px 15px; }
+        }
+
+        /* --- THANKS WINDOW STYLING --- */
+        #thanksModal {
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.95); z-index: 9999; justify-content: center; align-items: center;
+        }
+        .modal-content {
+            background: #111; border: 2px solid var(--gold); padding: 40px 20px;
+            border-radius: 25px; text-align: center; max-width: 450px; width: 90%;
+            box-shadow: 0 0 30px var(--gold);
+        }
+        .modal-content i { font-size: 3rem; color: var(--gold); margin-bottom: 20px; }
+        .modal-content h2 { font-family: 'Cinzel'; color: var(--gold); margin-bottom: 15px; }
+        .modal-content blockquote { font-style: italic; color: #ccc; margin-bottom: 20px; line-height: 1.6; }
+
         /* --- Hero Section Fix --- */
         .hero {
             margin: 20px; border-radius: 35px;
@@ -84,12 +114,10 @@
             font-size: 0.85rem; color: #ddd; margin-bottom: 10px; 
             display: flex; align-items: center; gap: 10px;
         }
-        /* Fixed Symbol Issue */
         .course-points li i { font-size: 0.7rem; color: var(--gold); margin-bottom: 0; }
 
         .enroll-label { font-size: 0.7rem; color: var(--gold); font-weight: 700; border: 1px solid var(--gold); padding: 5px 15px; border-radius: 20px; display: inline-block; }
 
-        /* Scroll Active Effect */
         .course-card.active-glow {
             background: var(--gold) !important; transform: translateY(-10px);
             box-shadow: 0 20px 40px rgba(212,175,55,0.25);
@@ -116,20 +144,17 @@
             background: var(--gold); color: #000; font-weight: 800; cursor: pointer;
         }
 
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            header { padding: 10px 5%; }
-            .hero { margin: 10px; border-radius: 20px; padding: 60px 15px; }
-        }
+        footer { padding: 40px; text-align: center; border-top: 1px solid #222; }
     </style>
 </head>
 <body>
 
     <header>
         <div class="logo-container"><img src="LOGO.png" alt="Logo"></div>
-        <nav class="nav-links">
-            <a href="#courses">Courses</a>
-            <a href="#enroll">Enrollment</a>
+        <div class="menu-toggle" onclick="toggleNav()"><i class="fas fa-bars"></i></div>
+        <nav class="nav-links" id="mainNav">
+            <a href="#courses" onclick="toggleNav()">Courses</a>
+            <a href="#enroll" onclick="toggleNav()">Enrollment</a>
         </nav>
     </header>
 
@@ -285,14 +310,35 @@
         </div>
     </section>
 
+    <div id="thanksModal">
+        <div class="modal-content">
+            <i class="fas fa-check-circle"></i>
+            <h2>JazakAllah Khairan!</h2>
+            <div style="border-left: 3px solid var(--gold); padding: 5px 20px; margin: 20px 0;">
+                <blockquote>"He who treads a path in search of knowledge, Allah will direct him to a path leading to Paradise."</blockquote>
+                <small style="color: var(--gold); font-weight: 700;">— Prophet Muhammad (PBUH)</small>
+            </div>
+            <p style="color: #fff; font-size: 0.9rem;">Connecting you to our team...</p>
+        </div>
+    </div>
+
     <footer><p>&copy; 2026 RAAH E NOOR ACADEMY | EXCELLENCE IN ONLINE LEARNING</p></footer>
 
     <script>
+        // 1. Mobile Menu Toggle
+        function toggleNav() {
+            if (window.innerWidth <= 768) {
+                document.getElementById('mainNav').classList.toggle('mobile-active');
+            }
+        }
+
+        // 2. Course Selection
         function enrollNow(name) {
             document.getElementById('courseSelect').value = name;
             document.getElementById('enroll').scrollIntoView({ behavior: 'smooth' });
         }
 
+        // 3. Scroll Effect
         const obs = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) entry.target.classList.add('active-glow');
@@ -301,10 +347,25 @@
         }, { threshold: 0.7 });
         document.querySelectorAll('.course-card').forEach(c => obs.observe(c));
 
+        // 4. Form Submission with Thanks Popup
         document.getElementById('proForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            const waText = `*✨ RAAH E NOOR ADMISSION ✨*%0A%0A*👤 Student:* ${this.name.value}%0A*📱 Phone:* ${this.phone.value}%0A*📚 Course:* ${this.course.value}%0A*📝 Note:* ${this.msg.value || 'N/A'}`;
-            window.open(`https://wa.me/923282248831?text=${waText}`, '_blank');
+            
+            // Show Thanks Window
+            document.getElementById('thanksModal').style.display = 'flex';
+
+            const name = this.name.value;
+            const phone = this.phone.value;
+            const course = this.course.value;
+            const msg = this.msg.value || 'N/A';
+
+            const waText = `*✨ RAAH E NOOR ADMISSION ✨*%0A%0A*👤 Student:* ${name}%0A*📱 Phone:* ${phone}%0A*📚 Course:* ${course}%0A*📝 Note:* ${msg}`;
+
+            // Wait 3.5 seconds then redirect
+            setTimeout(() => {
+                window.open(`https://wa.me/923282248831?text=${waText}`, '_blank');
+                document.getElementById('thanksModal').style.display = 'none';
+            }, 3500);
         });
     </script>
 </body>
