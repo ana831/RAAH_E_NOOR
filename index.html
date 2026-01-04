@@ -3,365 +3,308 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Raah e Noor | Royal Islamic Academy</title>
+    <title>Raah e Noor | Premium Academy</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         :root {
-            --bg-dark: #0a0a0a;
-            --card-bg: #141414;
+            --bg-dark: #050505;
+            --card-bg: #111111;
             --gold: #d4af37;
-            --gold-light: #f1d57e;
+            --gold-soft: #f1d57e;
             --white: #ffffff;
-            --nav-bg: #ffffff; /* White background for logo clarity */
-            --transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+            --nav-bg: #ffffff;
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
-
-        html { 
-            scroll-behavior: smooth; 
-            border: 8px solid var(--gold); 
-            min-height: 100vh;
-            background-color: var(--bg-dark);
-        }
+        html { scroll-behavior: smooth; border: 8px solid var(--gold); min-height: 100vh; background-color: var(--bg-dark); }
 
         body {
             font-family: 'Montserrat', sans-serif;
             background-color: var(--bg-dark);
             color: var(--white);
             overflow-x: hidden;
-            background-image: linear-gradient(rgba(10,10,10,0.92), rgba(10,10,10,0.92)), 
+            background-image: linear-gradient(rgba(5,5,5,0.94), rgba(5,5,5,0.94)), 
                               url('https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?q=80&w=2070');
-            background-attachment: fixed;
-            background-size: cover;
-            background-position: center;
+            background-attachment: fixed; background-size: cover; background-position: center;
         }
 
-        /* --- White Navigation Line --- */
         header {
-            background: var(--nav-bg); /* Pure White Top Line */
-            padding: 12px 8%;
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center;
-            position: sticky; 
-            top: 0; 
-            z-index: 1000;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            background: var(--nav-bg);
+            padding: 10px 8%;
+            display: flex; justify-content: space-between; align-items: center;
+            position: sticky; top: 0; z-index: 1000;
             border-bottom: 2px solid var(--gold);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
         }
+        .logo-container img { height: 65px; width: auto; }
 
-        .logo-container img { 
-            height: 65px; 
-            width: auto; 
-            display: block; 
-        }
-
-        .nav-links { display: flex; gap: 30px; }
         .nav-links a { 
-            text-decoration: none; 
-            color: #1a1a1a; /* Dark text for white background */
-            font-weight: 700; 
-            font-size: 0.85rem; 
-            text-transform: uppercase; 
-            letter-spacing: 1.5px; 
-            transition: 0.3s;
+            text-decoration: none; color: #111; font-weight: 700; 
+            font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-left: 20px;
         }
-        .nav-links a:hover { color: var(--gold); }
 
-        .menu-toggle { display: none; font-size: 1.8rem; color: #1a1a1a; cursor: pointer; }
-
-        /* --- Hero Section --- */
+        /* --- Hero Section Fix --- */
         .hero {
-            margin: 20px; border-radius: 30px;
-            background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), 
-                        url('https://images.unsplash.com/photo-1584551270911-6556119910f1?auto=format&fit=crop&w=1920');
+            margin: 20px; border-radius: 35px;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('https://images.unsplash.com/photo-1519817650390-64a93db51149?auto=format&fit=crop&w=1920');
             background-size: cover; background-position: center;
-            padding: 100px 20px; text-align: center;
-            border: 1px solid var(--gold);
-            box-shadow: 0 0 30px rgba(212, 175, 55, 0.1);
+            padding: 80px 20px; text-align: center; border: 1px solid rgba(212,175,55,0.4);
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
         }
-
-        .hero h1 { 
-            font-family: 'Cinzel'; font-size: clamp(1.8rem, 5vw, 3rem); 
-            color: var(--gold-light); margin-bottom: 25px; line-height: 1.3;
-        }
-
-        .hero p { font-size: 1.1rem; max-width: 700px; margin: 0 auto 40px; opacity: 0.9; font-weight: 300; }
-
-        .cta-button {
-            background: var(--gold); color: var(--bg-dark);
-            padding: 18px 45px; border-radius: 50px; text-decoration: none;
+        .hero h1 { font-family: 'Cinzel'; font-size: clamp(1.5rem, 5vw, 2.8rem); color: var(--gold-soft); margin-bottom: 20px; max-width: 900px; }
+        .hero p { font-size: 1rem; max-width: 650px; margin-bottom: 35px; line-height: 1.6; font-weight: 300; opacity: 0.9; }
+        
+        .cta-btn {
+            background: var(--gold); color: #000;
+            padding: 16px 40px; border-radius: 50px; text-decoration: none;
             font-weight: 800; text-transform: uppercase; letter-spacing: 2px;
-            display: inline-block; transition: var(--transition);
+            transition: var(--transition); box-shadow: 0 10px 20px rgba(212,175,55,0.3);
         }
-        .cta-button:hover { transform: scale(1.05); background: var(--white); box-shadow: 0 0 20px var(--gold); }
+        .cta-btn:hover { background: var(--white); transform: translateY(-3px); }
 
-        /* --- Course Cards & Color Invert --- */
-        .section-title { text-align: center; margin: 60px 0; }
-        .section-title h2 { font-family: 'Cinzel'; font-size: 2.5rem; color: var(--gold); }
-        .section-title div { width: 60px; height: 3px; background: var(--white); margin: 15px auto; }
-
-        .grid-courses { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; padding: 0 8%; }
+        /* --- Professional Course Cards --- */
+        .grid-courses { display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 30px; padding: 0 8%; }
 
         .course-card {
-            background: var(--card-bg); border-radius: 25px; padding: 45px 30px;
-            text-align: center; border: 1px solid rgba(212, 175, 55, 0.2);
-            transition: var(--transition);
+            background: var(--card-bg); border-radius: 25px; padding: 40px 25px;
+            text-align: center; border: 1px solid rgba(212, 175, 55, 0.15);
+            transition: var(--transition); cursor: pointer;
+            display: flex; flex-direction: column; justify-content: space-between;
         }
+        .course-card i { font-size: 2.8rem; color: var(--gold); margin-bottom: 20px; }
+        .course-card h3 { font-family: 'Cinzel'; color: var(--gold); margin-bottom: 15px; font-size: 1.2rem; }
 
-        .course-card i { font-size: 3rem; color: var(--gold); margin-bottom: 20px; transition: 0.5s; }
-        .course-card h3 { font-family: 'Cinzel'; color: var(--gold); margin-bottom: 20px; font-size: 1.3rem; }
-
-        .course-points { list-style: none; text-align: left; }
+        .course-points { list-style: none; text-align: left; margin-bottom: 20px; }
         .course-points li { 
-            font-size: 0.9rem; color: #ccc; margin-bottom: 12px; 
-            display: flex; gap: 10px; align-items: start;
+            font-size: 0.85rem; color: #ddd; margin-bottom: 10px; 
+            display: flex; align-items: center; gap: 10px;
         }
-        .course-points li::before { content: "◈"; color: var(--gold); }
+        /* Fixed Symbol Issue */
+        .course-points li i { font-size: 0.7rem; color: var(--gold); margin-bottom: 0; }
 
-        /* Color Invert on Scroll */
+        .enroll-label { font-size: 0.7rem; color: var(--gold); font-weight: 700; border: 1px solid var(--gold); padding: 5px 15px; border-radius: 20px; display: inline-block; }
+
+        /* Scroll Active Effect */
         .course-card.active-glow {
-            background: var(--gold) !important;
-            transform: translateY(-12px);
-            border-color: var(--white);
-            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.3);
+            background: var(--gold) !important; transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(212,175,55,0.25);
         }
-        .course-card.active-glow h3, 
-        .course-card.active-glow i { color: var(--bg-dark) !important; }
-        .course-card.active-glow .course-points li { color: var(--bg-dark) !important; font-weight: 600; }
-        .course-card.active-glow .course-points li::before { color: var(--bg-dark); }
+        .course-card.active-glow h3, .course-card.active-glow i, 
+        .course-card.active-glow .course-points li, .course-card.active-glow .enroll-label { 
+            color: #000 !important; border-color: #000 !important; font-weight: 600; 
+        }
 
         /* --- Admission Form --- */
         .form-section {
-            max-width: 900px; margin: 80px auto;
-            background: var(--card-bg); border-radius: 35px; padding: 60px 40px;
+            max-width: 800px; margin: 60px auto;
+            background: #111; border-radius: 30px; padding: 50px 30px;
             border: 2px solid var(--gold);
         }
-
+        .input-group { margin-bottom: 20px; text-align: left; }
+        .input-group label { display: block; color: var(--gold); font-size: 0.75rem; margin-bottom: 8px; font-weight: 700; text-transform: uppercase; }
         .input-field {
-            width: 100%; padding: 18px; margin-bottom: 20px;
-            background: #1a1a1a; border: 1px solid #333; border-radius: 12px;
-            color: white; font-family: inherit; font-size: 1rem;
+            width: 100%; padding: 15px; background: #000; border: 1px solid #333; 
+            border-radius: 12px; color: white; font-family: inherit;
         }
-        .input-field:focus { border-color: var(--gold); outline: none; }
-
         .submit-btn {
-            width: 100%; padding: 20px; border-radius: 12px; border: none;
-            background: var(--gold); color: var(--bg-dark);
-            font-weight: 800; font-size: 1.1rem; cursor: pointer; transition: 0.3s;
-        }
-        .submit-btn:hover { background: var(--white); letter-spacing: 2px; }
-
-        footer { 
-            background: #000; color: var(--gold); 
-            padding: 40px; text-align: center; font-size: 0.8rem; 
-            border-top: 1px solid #222;
+            width: 100%; padding: 18px; border-radius: 12px; border: none;
+            background: var(--gold); color: #000; font-weight: 800; cursor: pointer;
         }
 
-        /* --- Mobile Responsive --- */
         @media (max-width: 768px) {
-            header { padding: 12px 5%; }
             .nav-links { display: none; }
-            .menu-toggle { display: block; }
-            .hero { padding: 60px 20px; margin: 15px; }
-            .hero h1 { font-size: 2rem; }
-            .grid-courses { padding: 0 5%; }
-            .form-section { margin: 40px 15px; padding: 35px 20px; }
-            
-            .nav-links.mobile-active {
-                display: flex; flex-direction: column; position: absolute;
-                top: 89px; left: 0; width: 100%; background: var(--white);
-                padding: 30px; text-align: center; border-bottom: 2px solid var(--gold);
-            }
+            header { padding: 10px 5%; }
+            .hero { margin: 10px; border-radius: 20px; padding: 60px 15px; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo-container">
-            <img src="LOGO.png" alt="Raah e Noor Academy Logo">
-        </div>
-        <div class="menu-toggle" id="mobile-toggle"><i class="fas fa-bars"></i></div>
-        <nav class="nav-links" id="nav-list">
-            <a href="#">The Academy</a>
-            <a href="#courses">Curriculum</a>
-            <a href="#enroll">Admission</a>
+        <div class="logo-container"><img src="LOGO.png" alt="Logo"></div>
+        <nav class="nav-links">
+            <a href="#courses">Courses</a>
+            <a href="#enroll">Enrollment</a>
         </nav>
     </header>
 
     <section class="hero">
         <h1>"Seek knowledge from the cradle to the grave."</h1>
         <p>Premium 1-on-1 Online Islamic education for Kids and Women, led by expert female scholars.</p>
-        <a href="#enroll" class="cta-button">Begin Your Journey</a>
+        <a href="#enroll" class="cta-btn">Join Academy Now</a>
     </section>
 
     <section id="courses">
-        <div class="section-title">
-            <h2>Our Curriculum</h2>
-            <div></div>
+        <div style="text-align: center; margin: 50px 0;">
+            <h2 style="font-family:'Cinzel'; color:var(--gold); font-size: 2rem;">Our Curriculum</h2>
+            <div style="width: 50px; height: 2px; background: #fff; margin: 10px auto;"></div>
         </div>
 
         <div class="grid-courses">
-            <div class="course-card">
+            <div class="course-card" onclick="enrollNow('Noorani Qaida')">
                 <i class="fas fa-book-open"></i>
                 <h3>Noorani Qaida</h3>
                 <ul class="course-points">
-                    <li>Arabic Alphabet recognition</li>
-                    <li>Basic rules of pronunciation</li>
-                    <li>Letter formation techniques</li>
+                    <li><i class="fas fa-star"></i> Alphabet recognition</li>
+                    <li><i class="fas fa-star"></i> Basic pronunciation</li>
                 </ul>
+                <div><span class="enroll-label">Enroll Now</span></div>
             </div>
 
-            <div class="course-card">
+            <div class="course-card" onclick="enrollNow('Nazra Quran')">
                 <i class="fas fa-book-quran"></i>
                 <h3>Nazra Quran</h3>
                 <ul class="course-points">
-                    <li>Fluent reading of Holy Quran</li>
-                    <li>Daily reading practice</li>
-                    <li>Confidence in recitation</li>
+                    <li><i class="fas fa-star"></i> Fluent reading</li>
+                    <li><i class="fas fa-star"></i> Confidence building</li>
                 </ul>
+                <div><span class="enroll-label">Enroll Now</span></div>
             </div>
 
-            <div class="course-card">
+            <div class="course-card" onclick="enrollNow('Quran with Tajweed')">
                 <i class="fas fa-microphone-alt"></i>
                 <h3>Quran with Tajweed</h3>
                 <ul class="course-points">
-                    <li>Mastering Noon & Meem Sakin</li>
-                    <li>Advanced Madd & Gunna</li>
-                    <li>Prophetic recitation style</li>
+                    <li><i class="fas fa-star"></i> Makharij mastery</li>
+                    <li><i class="fas fa-star"></i> Proper recitation</li>
                 </ul>
+                <div><span class="enroll-label">Enroll Now</span></div>
             </div>
 
-            <div class="course-card">
+            <div class="course-card" onclick="enrollNow('Duas & Surahs')">
                 <i class="fas fa-hands-praying"></i>
                 <h3>Duas & Surahs</h3>
                 <ul class="course-points">
-                    <li>Daily Sunnah supplications</li>
-                    <li>Last 10 Surahs memorization</li>
-                    <li>Contextual understanding</li>
+                    <li><i class="fas fa-star"></i> Daily Supplications</li>
+                    <li><i class="fas fa-star"></i> Short Surah Hifz</li>
                 </ul>
+                <div><span class="enroll-label">Enroll Now</span></div>
             </div>
 
-            <div class="course-card">
+            <div class="course-card" onclick="enrollNow('Islamic Practices')">
                 <i class="fas fa-water"></i>
                 <h3>Islamic Practices</h3>
                 <ul class="course-points">
-                    <li>Wudu & Salah training</li>
-                    <li>5 Pillars of Islam</li>
-                    <li>Basics of Fasting</li>
+                    <li><i class="fas fa-star"></i> Wudu & Salah training</li>
+                    <li><i class="fas fa-star"></i> Five Pillars study</li>
                 </ul>
+                <div><span class="enroll-label">Enroll Now</span></div>
             </div>
 
-            <div class="course-card">
+            <div class="course-card" onclick="enrollNow('Islamic Beliefs')">
                 <i class="fas fa-shield-halal"></i>
                 <h3>Islamic Beliefs</h3>
                 <ul class="course-points">
-                    <li>Understanding Aqeedah</li>
-                    <li>Angels & Prophets</li>
-                    <li>Purpose of life</li>
+                    <li><i class="fas fa-star"></i> Aqeedah & Iman</li>
+                    <li><i class="fas fa-star"></i> Stories of Prophets</li>
                 </ul>
+                <div><span class="enroll-label">Enroll Now</span></div>
             </div>
 
-            <div class="course-card">
+            <div class="course-card" onclick="enrollNow('Manners (Akhlaq)')">
                 <i class="fas fa-heart"></i>
                 <h3>Manners (Akhlaq)</h3>
                 <ul class="course-points">
-                    <li>Character building</li>
-                    <li>Respect for elders</li>
-                    <li>Prophetic etiquette</li>
+                    <li><i class="fas fa-star"></i> Character building</li>
+                    <li><i class="fas fa-star"></i> Islamic Etiquette</li>
                 </ul>
+                <div><span class="enroll-label">Enroll Now</span></div>
             </div>
 
-            <div class="course-card">
+            <div class="course-card" onclick="enrollNow('Surah Memorization')">
                 <i class="fas fa-brain"></i>
                 <h3>Surah Memorization</h3>
                 <ul class="course-points">
-                    <li>Selected Surah Hifz</li>
-                    <li>Revision techniques</li>
-                    <li>Voice quality focus</li>
+                    <li><i class="fas fa-star"></i> Hifz techniques</li>
+                    <li><i class="fas fa-star"></i> Revision plans</li>
                 </ul>
+                <div><span class="enroll-label">Enroll Now</span></div>
             </div>
 
-            <div class="course-card">
+            <div class="course-card" onclick="enrollNow('Intro to Tafseer')">
                 <i class="fas fa-lightbulb"></i>
                 <h3>Intro to Tafseer</h3>
                 <ul class="course-points">
-                    <li>Quranic story explanations</li>
-                    <li>Daily life lessons</li>
-                    <li>Divine message insight</li>
+                    <li><i class="fas fa-star"></i> Quranic meanings</li>
+                    <li><i class="fas fa-star"></i> Verse understanding</li>
                 </ul>
+                <div><span class="enroll-label">Enroll Now</span></div>
             </div>
 
-            <div class="course-card">
+            <div class="course-card" onclick="enrollNow('Basic Fiqh')">
                 <i class="fas fa-balance-scale"></i>
                 <h3>Basic Fiqh</h3>
                 <ul class="course-points">
-                    <li>Purity & Daily Rulings</li>
-                    <li>Women & Kids Masail</li>
-                    <li>Halal & Haram basics</li>
+                    <li><i class="fas fa-star"></i> Daily Life Rulings</li>
+                    <li><i class="fas fa-star"></i> Purity & Prayer</li>
                 </ul>
+                <div><span class="enroll-label">Enroll Now</span></div>
             </div>
         </div>
     </section>
 
     <section id="enroll">
         <div class="form-section">
-            <h2 style="text-align:center; font-family:'Cinzel'; color:var(--gold); margin-bottom:30px;">Student Registration</h2>
-            <form id="admissionForm">
-                <input type="text" name="name" class="input-field" placeholder="Student Name" required>
-                <input type="tel" name="phone" class="input-field" placeholder="WhatsApp Number" required>
-                <select name="course" class="input-field" required>
-                    <option value="">Choose Course</option>
-                    <option>Noorani Qaida</option>
-                    <option>Nazra Quran</option>
-                    <option>Quran with Tajweed</option>
-                    <option>Selected Duas & Surahs</option>
-                    <option>Islamic Practices</option>
-                    <option>Islamic Beliefs</option>
-                    <option>Manners (Akhlaq)</option>
-                    <option>Surah Memorization</option>
-                    <option>Intro to Tafseer</option>
-                    <option>Basic Fiqh</option>
-                </select>
-                <textarea name="msg" class="input-field" rows="4" placeholder="Any specific notes?"></textarea>
-                <button type="submit" class="submit-btn">CONFIRM REGISTRATION</button>
+            <h2 style="text-align:center; font-family:'Cinzel'; color:var(--gold); margin-bottom:35px;">Admission Portal</h2>
+            <form id="proForm">
+                <div class="input-group">
+                    <label>Student Name</label>
+                    <input type="text" name="name" class="input-field" placeholder="Enter full name" required>
+                </div>
+                <div class="input-group">
+                    <label>WhatsApp Number</label>
+                    <input type="tel" name="phone" class="input-field" placeholder="+92..." required>
+                </div>
+                <div class="input-group">
+                    <label>Selected Course</label>
+                    <select name="course" id="courseSelect" class="input-field" required>
+                        <option value="">Choose Course</option>
+                        <option value="Noorani Qaida">Noorani Qaida</option>
+                        <option value="Nazra Quran">Nazra Quran</option>
+                        <option value="Quran with Tajweed">Quran with Tajweed</option>
+                        <option value="Duas & Surahs">Duas & Surahs</option>
+                        <option value="Islamic Practices">Islamic Practices</option>
+                        <option value="Islamic Beliefs">Islamic Beliefs</option>
+                        <option value="Manners (Akhlaq)">Manners (Akhlaq)</option>
+                        <option value="Surah Memorization">Surah Memorization</option>
+                        <option value="Intro to Tafseer">Intro to Tafseer</option>
+                        <option value="Basic Fiqh">Basic Fiqh</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Additional Notes</label>
+                    <textarea name="msg" class="input-field" rows="3" placeholder="Message for teacher..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">SUBMIT TO WHATSAPP</button>
             </form>
         </div>
     </section>
 
-    <footer>
-        <p>&copy; 2026 RAAH E NOOR ACADEMY | ROYAL ISLAMIC LEARNING PORTAL</p>
-    </footer>
+    <footer><p>&copy; 2026 RAAH E NOOR ACADEMY | EXCELLENCE IN ONLINE LEARNING</p></footer>
 
     <script>
-        // --- Mobile Menu Toggle ---
-        document.getElementById('mobile-toggle').addEventListener('click', () => {
-            document.getElementById('nav-list').classList.toggle('mobile-active');
-        });
+        function enrollNow(name) {
+            document.getElementById('courseSelect').value = name;
+            document.getElementById('enroll').scrollIntoView({ behavior: 'smooth' });
+        }
 
-        // --- Scroll Color Inversion Effect ---
-        const observer = new IntersectionObserver((entries) => {
+        const obs = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active-glow');
-                } else {
-                    entry.target.classList.remove('active-glow');
-                }
+                if (entry.isIntersecting) entry.target.classList.add('active-glow');
+                else entry.target.classList.remove('active-glow');
             });
         }, { threshold: 0.7 });
+        document.querySelectorAll('.course-card').forEach(c => obs.observe(c));
 
-        document.querySelectorAll('.course-card').forEach(card => observer.observe(card));
-
-        // --- WhatsApp Logic ---
-        document.getElementById('admissionForm').addEventListener('submit', function(e) {
+        document.getElementById('proForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            const msg = `*NEW ADMISSION*%0A*Name:* ${this.name.value}%0A*Course:* ${this.course.value}`;
-            window.open(`https://wa.me/923282248831?text=${msg}`, '_blank');
+            const waText = `*✨ RAAH E NOOR ADMISSION ✨*%0A%0A*👤 Student:* ${this.name.value}%0A*📱 Phone:* ${this.phone.value}%0A*📚 Course:* ${this.course.value}%0A*📝 Note:* ${this.msg.value || 'N/A'}`;
+            window.open(`https://wa.me/923282248831?text=${waText}`, '_blank');
         });
     </script>
 </body>
